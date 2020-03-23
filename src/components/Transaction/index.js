@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { numberWithCommas } from "../../utils/format";
 import { GlobalContext } from "../../store/GlobalState";
 
 import { Button } from "../../styles/Button";
@@ -21,9 +22,9 @@ function Transaction({ transaction }) {
     <ListItem type={transaction.amount > 0}>
       {transaction.text}{" "}
       <span>
-        {sing}${Math.abs(transaction.amount)}
+        {sing}${numberWithCommas(Math.abs(transaction.amount))}
       </span>
-      <Button delete onClick={() => deleteTransaction(transaction.id)}>
+      <Button delete onClick={() => deleteTransaction(transaction._id)}>
         X
       </Button>
     </ListItem>

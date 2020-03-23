@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { numberWithCommas } from "../../utils/format";
 import { GlobalContext } from "../../store/GlobalState";
 
 import { boxShadow } from "../../styles/variables";
@@ -48,11 +49,11 @@ function IncomeExpenses() {
     <IncExpContainer>
       <div>
         <h4>Income</h4>
-        <Money plus>{income}</Money>
+        <Money plus>{numberWithCommas(income)}</Money>
       </div>
       <div>
         <h4>Expense</h4>
-        <Money minus>{expense}</Money>
+        <Money minus>{numberWithCommas(expense)}</Money>
       </div>
     </IncExpContainer>
   );
